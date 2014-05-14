@@ -9,7 +9,11 @@ namespace LibraryApi.Model
 {
 	public class LibraryContext :DbContext
 	{
-	
+
+		public LibraryContext() : base("server=.;database=MayWebApi;integrated security=true")
+		{
+			
+		}
 
 		public DbSet<Book> Books { get; set; }
 		public DbSet<Friend> Friends { get; set; }

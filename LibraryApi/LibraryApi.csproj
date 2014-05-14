@@ -36,9 +36,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServerCompact">
-      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -58,6 +55,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.0\lib\net45\System.Web.Http.dll</HintPath>
@@ -74,18 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Config\Bootstrap.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Migrations\201405140107205_initial.cs" />
-    <Compile Include="Migrations\201405140107205_initial.Designer.cs">
-      <DependentUpon>201405140107205_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405140109339_nulledDate.cs" />
-    <Compile Include="Migrations\201405140109339_nulledDate.Designer.cs">
-      <DependentUpon>201405140109339_nulledDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201405140110233_description.cs" />
-    <Compile Include="Migrations\201405140110233_description.Designer.cs">
-      <DependentUpon>201405140110233_description.cs</DependentUpon>
+    <Compile Include="Migrations\201405140139133_initial.cs" />
+    <Compile Include="Migrations\201405140139133_initial.Designer.cs">
+      <DependentUpon>201405140139133_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Book.cs" />
@@ -99,14 +90,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201405140107205_initial.resx">
-      <DependentUpon>201405140107205_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405140109339_nulledDate.resx">
-      <DependentUpon>201405140109339_nulledDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201405140110233_description.resx">
-      <DependentUpon>201405140110233_description.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405140139133_initial.resx">
+      <DependentUpon>201405140139133_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
