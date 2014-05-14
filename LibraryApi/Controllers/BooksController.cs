@@ -16,6 +16,11 @@ namespace LibraryApi.Controllers
 		public async Task<IEnumerable<Book>>  Get()
 		{
 			return await context.Books.ToListAsync();
-		} 
+		}
+
+		public async Task<Book> Get(int id)
+		{
+			return await context.Books.FirstOrDefaultAsync(b => b.Id == id);
+		}
 	}
 }
