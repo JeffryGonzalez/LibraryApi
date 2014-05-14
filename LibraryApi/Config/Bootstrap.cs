@@ -11,6 +11,7 @@ namespace LibraryApi.Config
 	{
 		public static void Configure(HttpConfiguration config)
 		{
+			config.Routes.MapHttpRoute("HomePage", "api", new {controller = "Home"});
 			config.Routes.MapHttpRoute("LibraryApi", "api/{controller}/{id}", new {id = RouteParameter.Optional});
 		}
 	}
