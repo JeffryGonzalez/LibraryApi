@@ -85,6 +85,9 @@
     <Reference Include="Tavis.UriTemplates">
       <HintPath>..\packages\Tavis.UriTemplates.0.4\lib\Net35\Tavis.UriTemplates.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib.CollectionJson">
+      <HintPath>..\packages\WebApiContrib.CollectionJson.0.5.1\lib\net40\WebApiContrib.CollectionJson.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
