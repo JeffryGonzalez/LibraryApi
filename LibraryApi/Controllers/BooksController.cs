@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -47,15 +46,5 @@ namespace LibraryApi.Controllers
 			}
 			return new BookFactory().Create(book);
 		}
-	}
-
-	public class BookSummary
-	{
-
-		public int Id { get;  set; }
-		public string Title { get;  set; }
-		public string Author { get;  set; }
-		public bool Available { get;  set; }
-
 	}
 }

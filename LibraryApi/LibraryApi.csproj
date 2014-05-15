@@ -97,6 +97,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Config\Bootstrap.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\BookSummary.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Migrations\201405140139133_initial.cs" />
     <Compile Include="Migrations\201405140139133_initial.Designer.cs">
