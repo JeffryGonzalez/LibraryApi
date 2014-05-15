@@ -15,6 +15,13 @@ namespace LibraryApi.Model
 			
 		}
 
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Book>().HasMany<Loan>(l=>l.Loans);
+			modelBuilder.Entity<Friend>().HasMany<Loan>(f => f.Loans);
+			base.OnModelCreating(modelBuilder);
+		}
+
 		public DbSet<Book> Books { get; set; }
 		public DbSet<Friend> Friends { get; set; }
 		public DbSet<Loan> Loans { get; set; }
