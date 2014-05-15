@@ -18,26 +18,34 @@ namespace LibraryApi.Controllers
 	{
 		LibraryContext context = new LibraryContext();
 
-		public async Task<IEnumerable<Book>>  Get()
+		public async Task<IEnumerable<BookSummary>>  Get()
 		{
-			return await context.Books.ToListAsync();
+			return await context.Books.Select(b => new BookSummary()
+			{
+				Id = b.Id,
+				Title = b.Title,
+				Author = b.Author,
+				Available = b.Loans.Any(l => l.Returned != null)
+			}).ToListAsync();
 		}
 
-		public  JObject Get(int id)
+		public async Task<JObject> Get(int id)
 		{
-			var book =
-				context.Books.Where(b=>b.Id==id).Select(
+			var book = await
+				context.Books.Where(b => b.Id == id).Select(
 					b =>
 						new BookSummary()
 						{
 							Id = b.Id,
 							Title = b.Title,
 							Author = b.Author,
-							Available = b.Loans.Any(l => l.Returned == null)
-						}).Single();
-			//var book = context.Books.FirstOrDefaultAsync(b => b.Id == id).Result;
-			dynamic model = new BookFactory().Create(book);
-			return model;
+							Available = b.Loans.Any(l => l.Returned != null)
+						}).SingleOrDefaultAsync();
+			if (book == null)
+			{
+				throw new HttpResponseException(HttpStatusCode.NotFound);
+			}
+			return new BookFactory().Create(book);
 		}
 	}
 

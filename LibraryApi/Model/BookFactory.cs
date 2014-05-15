@@ -10,28 +10,11 @@ namespace LibraryApi.Model
 
 		public dynamic Create(BookSummary book)
 		{
-			//dynamic model = new BookModel();
-			//model.Id = book.Id;
-			//model.Title = book.Title;
-			//model.Author = book.Author;
-			//model.Links.Add(new SelfLink() {Target = new Uri("/books/"  + book.Id, UriKind.Relative)});
-			//return model;
-			/*
-			 * "links": {
-		"http://bookstore.com/rel#loans": {
-			"href-template": "/loans/{bookId}/{friendId}{?action}",
-			"href-vars": {
-				"bookId": 1,
-				"friendId": null,
-				"action": "borrow"
-			},
-			"hints": {
-				"allow": [
-					"POST"
-				]
-			}
-		}*/
-			dynamic result = JObject.FromObject(book);
+
+			dynamic result = new JObject();
+			result.id = book.Id;
+			result.title = book.Title;
+			result.author = book.Author;
 
 			result.links = new JObject();
 
@@ -43,16 +26,45 @@ namespace LibraryApi.Model
 
 			result.links[linkType]["href-vars"] = new JObject();
 			result.links[linkType]["href-vars"].bookId = book.Id;
+
 			result.links[linkType].hints = new JObject();
 			result.links[linkType].hints.allow = new JArray();
 			result.links[linkType].hints.allow.Add("POST");
-
-
-
 
 			return result;
 
 		}
 
 	}
+
+	public class Rootobject
+	{
+		public int id { get; set; }
+		public string title { get; set; }
+		public string author { get; set; }
+		public Links links { get; set; }
+	}
+
+	public class Links
+	{
+		public HttpBookstoreComRelLoans httpbookstorecomrelloans { get; set; }
+	}
+
+	public class HttpBookstoreComRelLoans
+	{
+		public string hreftemplate { get; set; }
+		public HrefVars hrefvars { get; set; }
+		public Hints hints { get; set; }
+	}
+
+	public class HrefVars
+	{
+		public int bookId { get; set; }
+	}
+
+	public class Hints
+	{
+		public string[] allow { get; set; }
+	}
+
 }
