@@ -9,7 +9,7 @@ namespace LibraryApi.Controllers
 	{
 		public BookSummary()
 		{
-			Links = new List<RelLink> {new RelLink() {Link = new Uri("/books/" + Id, UriKind.Relative), Relation = "item"}};
+			//Links = new List<RelLink> {new RelLink() {Link = new Uri("/books/" + Id, UriKind.Relative), Relation = "item"}};
 		}
 
 		public int Id { get;  set; }
@@ -17,7 +17,13 @@ namespace LibraryApi.Controllers
 		public string Author { get;  set; }
 		public bool Available { get;  set; }
 
-		public List<RelLink> Links { get; set; }
+		public List<RelLink> Links
+		{
+			get
+			{
+				return new List<RelLink>() { new RelLink() { Relation = "item", Link = new Uri("/api/books/" + Id, UriKind.Relative)}};
+			}
+		}
 
 	}
 
