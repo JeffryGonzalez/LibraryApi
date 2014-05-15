@@ -15,31 +15,23 @@ namespace LibraryApi.Controllers
 {
 	public class BooksController : ApiController
 	{
-		LibraryContext context = new LibraryContext();
+
+		private readonly IBookQueries queries;
+
+
+		public BooksController(IBookQueries queries)
+		{
+			this.queries = queries;
+		}
 
 		public async Task<IEnumerable<BookSummary>>  Get()
 		{
-			return await context.Books.Select(b => new BookSummary()
-			{
-				Id = b.Id,
-				Title = b.Title,
-				Author = b.Author,
-				Available = b.Loans.Any(l => l.Returned != null)
-			}).ToListAsync();
+			return await queries.GetAllBooks();
 		}
 
 		public async Task<JObject> Get(int id)
 		{
-			var book = await
-				context.Books.Where(b => b.Id == id).Select(
-					b =>
-						new BookSummary()
-						{
-							Id = b.Id,
-							Title = b.Title,
-							Author = b.Author,
-							Available = b.Loans.Any(l => l.Returned != null)
-						}).SingleOrDefaultAsync();
+			var book = await queries.GetBook(id);
 			if (book == null)
 			{
 				throw new HttpResponseException(HttpStatusCode.NotFound);

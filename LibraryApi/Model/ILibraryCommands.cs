@@ -2,7 +2,7 @@
 
 namespace LibraryApi.Model
 {
-	public interface ILibraryCommands
+	public interface ILoanCommands
 	{
 		Task<Loan> AddLoan(int bookId, int friendId);
 	}

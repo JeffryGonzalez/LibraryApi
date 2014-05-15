@@ -36,6 +36,15 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -92,6 +101,9 @@
     <Reference Include="WebApiContrib.CollectionJson">
       <HintPath>..\packages\WebApiContrib.CollectionJson.0.5.1\lib\net40\WebApiContrib.CollectionJson.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib.IoC.Unity">
+      <HintPath>..\packages\WebApiContrib.IoC.Unity.0.9.3.0\lib\net40\WebApiContrib.IoC.Unity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
@@ -113,6 +125,7 @@
     <Compile Include="Model\BookFactory.cs" />
     <Compile Include="Model\BookModel.cs" />
     <Compile Include="Model\Friend.cs" />
+    <Compile Include="Model\IBookQueries.cs" />
     <Compile Include="Model\ILibraryCommands.cs" />
     <Compile Include="Model\LibraryContext.cs" />
     <Compile Include="Model\LibraryEf.cs" />

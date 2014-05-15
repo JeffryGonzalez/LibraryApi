@@ -14,9 +14,9 @@ namespace LibraryApi.Controllers
 	public class LoansAndReturnsController : ApiController
 	{
 
-		private ILibraryCommands commands;
+		private ILoanCommands commands;
 
-		public LoansAndReturnsController(ILibraryCommands commands)
+		public LoansAndReturnsController(ILoanCommands commands)
 		{
 			this.commands = commands;
 		}
