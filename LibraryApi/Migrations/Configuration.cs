@@ -23,7 +23,7 @@ namespace LibraryApi.Migrations
 					var friend1 = new Friend() { Name = "Todd E" };
 					var friend2 = new Friend() { Name = "Tim E" };
 					var friend3 = new Friend() { Name = "Doug B" };
-
+					// Jeff Was Here
 					var loan1 = new Loan() { Book = book1, Friend = friend1, LoanedOn = DateTime.Now, Description = "In two weeks." };
 					var loan2 = new Loan()
 					{
